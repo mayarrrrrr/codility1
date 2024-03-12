@@ -13,33 +13,46 @@ def solution(A,D):
     
     #  If a card transaction worth more than 100 occurs more than three time in a month no fee is paid 
   
-    initial_balance = 0
+    balance = 0
     month_transaction = {}
+    fee = 5 *12
     
    
-    for transaction in A:
-        print(transaction)
+    for transaction in range(len(A)):
+        print(len(A))
+        
       
         
        
-        if transaction >= 0:
-           initial_balance  += transaction
-        #    print(initial_balance)
+        if A[transaction] >= 0:
+           balance  += A[transaction]
+        #    print(balance)
            
         else:
-            initial_balance += transaction - (5*12)
+            
+            balance += A[transaction] 
+            print(balance)
+            balance -= fee
+            
             
             
         for date in D:
             month = int(date.split("-")[1])
-            print(month)
+            if month in month_transaction:
+                month_transaction[month] += A[transaction]
+                print(month_transaction)
+            else:
+                month_transaction[month] = A[transaction]    
+                
+                
+                
             
                 
             
             
             
             
-    return initial_balance
+    return balance
         
     
-print(solution(  [1, -1, 0, -105, 1] ,["2020-1-20","2020-2-20","2020-1-20"])) 
+print(solution(  [180, -50, -25, -25],["2020-1-20","2020-2-20","2020-1-20"])) 
