@@ -15,11 +15,12 @@ def solution(A,D):
   
     balance = 0
     month_transaction = {}
+    total_month = {}
     fee = 5 *12
     
    
     for transaction in range(len(A)):
-        print(len(A))
+        # print(len(A))
         
       
         
@@ -30,21 +31,25 @@ def solution(A,D):
            
         else:
             
-            balance += A[transaction] 
-            print(balance)
-            balance -= fee
             
-            
-            
-        for date in D:
-            month = int(date.split("-")[1])
+            month = int(D[transaction].split("-")[1])
             if month in month_transaction:
                 month_transaction[month] += A[transaction]
-                print(month_transaction)
             else:
-                month_transaction[month] = A[transaction]    
+                month_transaction[month] = A[transaction]
+            if month in total_month:
+                total_month[month] += 1
+            else:
+                total_month[month] = 1 
+                
+               
+    print(month_transaction)
+    print(total_month)
+                      
                 
                 
+        
+            
                 
             
                 
@@ -55,4 +60,4 @@ def solution(A,D):
     return balance
         
     
-print(solution(  [180, -50, -25, -25],["2020-1-20","2020-2-20","2020-1-20"])) 
+print(solution(  [180, -50, -25, -25],["2020-1-20","2020-2-20","2020-1-20", "2020-2-20"])) 
