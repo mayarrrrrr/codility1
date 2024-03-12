@@ -9,22 +9,37 @@ def solution(A,D):
     
     #  iterate through the D array(dates) and split the date to obtain month
     
+    # Create a dictionary to store the dates as keys and their corresponding amount as value 
+    
     #  If a card transaction worth more than 100 occurs more than three time in a month no fee is paid 
   
     initial_balance = 0
+    month_transaction = {}
     
    
-    for transaction in range (len(A)):
+    for transaction in A:
+        print(transaction)
+      
         
        
-        if A[transaction] < 0:
-           initial_balance  += A[transaction]-(5*12)
+        if transaction >= 0:
+           initial_balance  += transaction
+        #    print(initial_balance)
            
-        elif A[transaction] > 0:
-            initial_balance += A[transaction]
+        else:
+            initial_balance += transaction - (5*12)
+            
+            
+        for date in D:
+            month = int(date.split("-")[1])
+            print(month)
+            
+                
+            
+            
             
             
     return initial_balance
         
     
-print(solution(  [-60, 60, -40, -20] ,["2020-1-20","1210","12901"])) 
+print(solution(  [1, -1, 0, -105, 1] ,["2020-1-20","2020-2-20","2020-1-20"])) 
