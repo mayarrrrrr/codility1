@@ -7,9 +7,16 @@ def solution(A,D):
     #    if present, deduct card fee(5*12) after summation
     #    if not present,return the summed balance
     
-    #  iterate through the D array(dates) and split the date to obtain month
+    #   split the date to obtain month
     
-    # Create a dictionary to store the dates as keys and their corresponding amount as value 
+    # Create a dictionary to store the month as key and their corresponding amount as value-month_transaction
+    
+     # Create a dictionary to store the month as key and their corresponding occurence as value-total_month
+     
+    
+    # iterate through dictionary to acces the value(transaction,month)
+    
+    
     
     #  If a card transaction worth more than 100 occurs more than three time in a month no fee is paid 
   
